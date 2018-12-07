@@ -1,0 +1,5 @@
+en:
+  shop:
+    index:
+      price: "Price: %{item_price}"
+      add_to_cart: "Add to Cart"

@@ -1,0 +1,14 @@
+en:
+  layouts:
+    application:
+      app_name: "BikeShare"
+      best: "Best"
+      admin_notify: "Logged in as Admin User:"
+      user_notify: "Logged in as:"
+      logout: "Log Out"
+      cart: "Cart: %{count}"
+      login: "Log In"
+      conditions: "Conditions History"
+      trips: "All Trips"
+      stations: "All Stations"
+      shop: "The Bike Shop"
