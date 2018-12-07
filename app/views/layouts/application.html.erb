@@ -4,7 +4,7 @@
     <% if content_for? :for_head %>
       <%= yield :for_head %>
     <% else %>
-      <title>BikeShare</title>
+      <title><%= t('app_name') %></title>
     <% end %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -17,43 +17,43 @@
   <body>
     <nav class="nav-bar">
       <div class="nav-left">
-        <h1 class="navy-header"><%= link_to 'Best', root_path %></h1>
-        <h1 class="sky-header"><%= link_to 'BikeShare', root_path %></h1>
+        <h1 class="navy-header"><%= link_to t('best'), root_path %></h1>
+        <h1 class="sky-header"><%= link_to t('app_name'), root_path %></h1>
       </div>
       <% if current_user  %>
         <div class="nav-center">
           <% if current_admin? %>
-            <p><%= link_to "Logged in as Admin User:", dashboard_path %>
+            <p><%= link_to t('admin_notify'), dashboard_path %>
             <%= link_to current_user.name, dashboard_path %> - <%= link_to 'Go to Admin Dashboard', admin_dashboard_path %></p>
           <% else %>
-            <p><%= link_to "Logged in as:", dashboard_path %>
+            <p><%= link_to t('user_notify'), dashboard_path %>
             <%= link_to current_user.name, dashboard_path %></p>
           <% end %>
         </div>
         <div class="nav-right">
-          <p><%= link_to 'Logout', logout_path, class: "button" %></p>
+          <p><%= link_to t('logout'), logout_path, class: "button" %></p>
         </div>
         <div class="nav-center">
-          <p><%= link_to "Cart: #{@basket.total_count}", cart_path %></p>
+          <p><%= link_to "#{t('cart')} #{@basket.total_count}" , cart_path %></p>
         </div>
       <% else %>
         <div class="nav-center">
-          <p><%= link_to 'Login', login_path %></p>
+          <p><%= link_to t('login'), login_path %></p>
         </div>
         <div class="nav-right">
-          <p><%= link_to 'CreateAccount', new_user_path, class: "button" %></p>
+          <p><%= link_to t('create_account'), new_user_path, class: "button" %></p>
         </div>
         <div class="nav-center">
-          <p><%= link_to "Cart: #{@basket.total_count}", cart_path %></p>
+          <p><%= link_to "#{t('cart')} #{@basket.total_count}", cart_path %></p>
         </div>
       <% end %>
     </nav>
     <div class="row sky-blue">
       <div class="white-links">
-        <p><%= link_to 'Conditions History', conditions_path %></p>
-        <p><%= link_to 'All Trips', trips_path %></p>
-        <p><%= link_to 'All Stations', stations_path %></p>
-        <p><%= link_to 'The Bike Shop', bike_shop_path %></p>
+        <p><%= link_to t('conditions'), conditions_path %></p>
+        <p><%= link_to t('trips'), trips_path %></p>
+        <p><%= link_to t('stations'), stations_path %></p>
+        <p><%= link_to t('shop'), bike_shop_path %></p>
       </div>
     </div>
     <% unless flash.empty? %>
