@@ -1,0 +1,8 @@
+en:
+  carts:
+    create:
+      success: "You now have %{items}"
+    update:
+      notice: "Cart Updated!"
+    destroy:
+      success: "Successfully removed <a href=%{item_path}>%{item}</a> from your cart."

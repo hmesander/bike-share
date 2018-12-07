@@ -12,21 +12,21 @@ class CartsController < ApplicationController
       @basket.add_item(item.id)
       session[:cart] = @basket.contents
 
-      flash[:notice] = "You now have #{pluralize(@basket.count_of(item.id), item.title)}."
+      flash[:notice] = t('.success', items: pluralize(@basket.count_of(item.id), item.title))
     end
     redirect_to bike_shop_path
   end
 
   def update
     @basket.update_item(params[:item], params[:quantity])
-    flash[:notice] = "Cart Updated!"
+    flash[:notice] = t('.notice')
     redirect_to cart_path
   end
 
   def destroy
     @basket.remove(params[:item])
     item = Item.find(params[:item].to_i)
-    flash[:success] = "Successfully removed <a href=\"#{item_path(item)}\">#{item.title}</a> from your cart."
+    flash[:success] = t('.success', item_path: item_path(item), item: item.title)
     redirect_to cart_path
   end
 end
